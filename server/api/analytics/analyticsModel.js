@@ -17,7 +17,7 @@ exports.getTotalUsage = function(userID) {
             .then(oralActivity => {
                 absoluteTotal += oralActivity.totalGallons;
 
-                var response = buildResponse(true, 'Retrieved total analytics.' , { showers: showerActivity, oral: oralActivity, totalGallons: absoluteTotal });
+                var response = buildResponse(true, 'Retrieved total analytics.' , { analytics: { showers: showerActivity, oral: oralActivity, totalGallons: absoluteTotal } } );
                 resolve(response);
             })
         })
