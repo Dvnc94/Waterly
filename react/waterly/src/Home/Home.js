@@ -40,7 +40,8 @@ class Home extends Component {
         analytics: {
             showers: { count: 0 },
             oral: { count: 0 },
-            carwash: { count: 0 }
+            carwash: { count: 0 },
+            washhands: { count: 0 }
         }
      };
   }
@@ -95,6 +96,17 @@ class Home extends Component {
     })
   }
 
+  addWashHands = () => {
+      axios.post(`${API_ROOT}/washhands/`, { id: "alovelace" })
+      .then(result => {
+        console.log(result);
+      this.fetchAnalytics();
+  })
+  .catch(error => {
+      console.log(error);
+  })
+  }
+
   render() {
     return (
       <div className="home-container">
@@ -132,8 +144,8 @@ class Home extends Component {
                 <div className="water-usage-block">
                 <div className="gallons">
                         <FontAwesomeIcon icon={faMinus} className="icons" onClick={(e) => this.decrement(e, "tap")} />
-                        <div className="times">{this.state.tap}</div>
-                        <FontAwesomeIcon icon={faPlus} className="icons" onClick={(e) => this.increment(e, "tap")} />
+                        <div className="times">{this.state.analytics.washhands.count}</div>
+                        <FontAwesomeIcon icon={faPlus} className="icons" onClick={() => this.addWashHands()} />
                     </div>
                     <div className="icon-circle">
                         <img src={tap} className="image" alt="NA" />  

@@ -1,7 +1,7 @@
 var { default:db } = require('../../db/db');
 var { buildResponse } = require('../../helper');
 
-var { getAllShowerActivity, getAllOralActivity, getAllCarWashActivity } = require('./dataModels');
+var { getAllShowerActivity, getAllOralActivity, getAllCarWashActivity, getAllWashHandsActivity } = require('./dataModels');
 
 exports.getTotalUsage = function(userID) {
     console.log("User id: ", userID);
@@ -21,8 +21,13 @@ exports.getTotalUsage = function(userID) {
                 .then(carWashActivity => {
                     absoluteTotal += carWashActivity.totalGallons;
 
-                    var response = buildResponse(true, 'Retrieved total analytics.' , { analytics: { showers: showerActivity, oral: oralActivity, carwash: carWashActivity, totalGallons: absoluteTotal } } );
-                    resolve(response);
+                    getAllWashHandsActivity(userID)
+                    .then(washHandsActivity => {
+                        absoluteTotal += washHandsActivity.totalGallons;
+
+                        var response = buildResponse(true, 'Retrieved total analytics.' , { analytics: { showers: showerActivity, oral: oralActivity, carwash: carWashActivity, washhands: washHandsActivity, totalGallons: absoluteTotal } } );
+                        resolve(response);
+                    })
                 })
             })
         })
