@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
+import Fade from 'react-fade-opacity'
 
 
 // Import styling
@@ -125,7 +126,7 @@ class Home extends Component {
         <img src={logo} className="app-logo" />
 
         <select className="custom-select" value={this.state.user_id} onChange={this.updateUser.bind(this)} >
-            <option hidden> </option>
+            <option > </option>
             <option value="bill">bill</option>
             <option value="andrew">andrew</option>
             <option value="eric">eric</option>
@@ -185,26 +186,39 @@ class Home extends Component {
                 </div>
         </div> 
         <div className="bottomPane">
-            <div className="planterPot">
-                <img src={plant1} className="plantImage" alt="NA" hidden></img>
-                <img src={plant2} className="plantImage" alt="NA" hidden></img>
-                <img src={plant3} className="plantImage" alt="NA" ></img>
-                <img src={plant4} className="plantImage" alt="NA" hidden></img>
-                <img src={plant5} className="plantImage" alt="NA" hidden></img>
-                <img src={plant6} className="plantImage" alt="NA" hidden></img>
-                <img src={plant7} className="plantImage" alt="NA" hidden></img>
+            <div className="planterPot" id="planterImages">
+                
+               {
+                   this.state.analytics.totalGallons > 100 ?
+                <img id="plant1" src={plant1} className="plantImage" alt="NA"  ></img>
+               : null
+            } {  this.state.analytics.totalGallons > 90 && this.state.analytics.totalGallons < 100 ?
+                <img id="plant2" src={plant2} className="plantImage" alt="NA"   ></img>
+               : null
+            }{  this.state.analytics.totalGallons > 80 && this.state.analytics.totalGallons < 90 ?
+                <img id="plant3" src={plant3} className="plantImage" alt="NA"  ></img>
+             : null
+            } {  this.state.analytics.totalGallons > 70 && this.state.analytics.totalGallons < 80?
+                <img id="plant4" src={plant4} className="plantImage" alt="NA"  ></img>
+             :null   } {  this.state.analytics.totalGallons > 60 && this.state.analytics.totalGallons < 70 ?
+                <img id="plant5" src={plant5} className="plantImage" alt="NA"  ></img>
+              :null } {  this.state.analytics.totalGallons > 50 && this.state.analytics.totalGallons < 60 ?
+                <img id="plant6" src={plant6} className="plantImage" alt="NA"   ></img>
+              :null } {  this.state.analytics.totalGallons > 40 && this.state.analytics.totalGallons < 50?
+                <img id="plant7" src={plant7} className="plantImage" alt="NA"  ></img>
+              : null }
+                
+               
+                
             </div>
-            <div className="userStats">
-                You're doing great, sweetie! 
-                20% better than Linda!
-            </div>
+           
         </div>
         <div className="progress-container rounded-lg">
             {/* <h3>Progress</h3> */}
             <h5>Total Gallons used today : {this.state.analytics.totalGallons}</h5>
             <Line percent={(Math.floor(this.state.analytics.totalGallons)).toString()} strokeWidth="11" strokeColor="#2C96E8" />
         </div>
-           
+      
         </div>
         );
     }
