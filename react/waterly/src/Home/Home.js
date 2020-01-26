@@ -5,6 +5,15 @@ import car from "../../public/car-wash.png";
 import brush from "../../public/toothbrush.png";
 import tap from "../../public/tap.png";
 import shower from "../../public/shower.png";
+import plant1 from "../../public/progress/1.png";
+import plant2 from "../../public/progress/2.png";
+import plant3 from "../../public/progress/3.png";
+import plant4 from "../../public/progress/4.png";
+import plant5 from "../../public/progress/5.png";
+import plant6 from "../../public/progress/6.png";
+import plant7 from "../../public/progress/7.png";
+
+
 
 class App extends Component {
   render() {
@@ -35,12 +44,22 @@ class App extends Component {
                 </div>
                 <div className="water-usage-block">
                     <div className="icon-circle">
-                        <img src={car} className="image" alt="NA" />  
+                    <img src={brush} className="image" alt="NA" /> 
                     </div>
                 </div>
             </div>
             <div className="progress-container">
                 Progress
+                <div id="progress">
+                <img src={plant1} className="plantImage" alt="NA"></img>
+                <img src={plant2} className="plantImage" alt="NA"></img>
+                <img src={plant3} className="plantImage" alt="NA"></img>
+                <img src={plant4} className="plantImage" alt="NA"></img>
+                <img src={plant5} className="plantImage" alt="NA"></img>
+                <img src={plant6} className="plantImage" alt="NA"></img>
+                <img src={plant7} className="plantImage" alt="NA"></img>
+                </div>
+              
             </div>
         </div>
       </div>
