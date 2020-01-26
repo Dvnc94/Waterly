@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter, router } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
@@ -121,7 +121,7 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="progress-container">
+                <div className="progress-container rounded-lg">
                     <h3>Progress</h3>
                     
                     <div id="progress">
