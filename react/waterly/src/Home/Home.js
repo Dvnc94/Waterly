@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { withRouter, router } from 'react-router-dom'
 import './home.css';
 import boil from "../../public/boil.png";
 import car from "../../public/car-wash.png";
 import brush from "../../public/toothbrush.png";
 import tap from "../../public/tap.png";
 import shower from "../../public/shower.png";
+import start from "../../public/start1.png";
+import {postCall} from "../api"; 
 
-class App extends Component {
+class Home extends Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+        showStart: true,
+     };
+  }
+  timer = () => {
+    router.push("/timer"); 
+  }
+
   render() {
     return (
       <div className="home-container">
@@ -14,8 +28,10 @@ class App extends Component {
         <div className="content">
             <div className="water-usage-blocks-container">
                 <div className="water-usage-block">
-                    <div className="icon-circle">
-                        <img src={shower} className="image" alt="NA" />
+                    <div
+                        className="icon-circle"
+                    >
+                        <img src={shower} className="image" alt="NA" onClick={() => this.timer} />
                     </div>
                 </div>
                 <div className="water-usage-block">
@@ -48,4 +64,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(Home);

@@ -27,6 +27,18 @@
     padding: 5%;
     text-align: center;
 }
+.shower-icon-circle {
+    height: 100%;
+    border-radius: 5%;
+    margin: auto;
+    padding-top: 25px;
+    border: 1px solid transparent;
+}
+.shower-icon-circle:hover {
+    border: 1px solid white;
+    filter: drop-shadow(0px 4px 3px white);
+    box-shadow: 0 0 5px 10px white;
+}
 .icon-circle {
     height: 100%;
     border-radius: 5%;
@@ -35,12 +47,16 @@
     border: 1px solid transparent;
 }
 .icon-circle:hover {
-    border: 1px solid white;
+    /* border: 1px solid white; */
     filter: drop-shadow(0px 4px 3px white);
-    box-shadow: 0 0 5px 10px white;
+    /* box-shadow: 0 0 5px 10px white; */
 }
 .image {
     height: 80%;
+}
+.start-container {
+    height: 80%;
+    background-color: red;
 }
 .progress-container {
     display: inline-block;
