@@ -42,16 +42,17 @@ class Home extends Component {
             oral: { count: 0 },
             carwash: { count: 0 },
             washhands: { count: 0 }
-        }
+        },
+        user_id: ''
      };
   }
 
   componentDidMount = () => {
-      this.fetchAnalytics();
+      
   }
 
   fetchAnalytics = () => {
-    axios.get(`${API_ROOT}/analytics/alovelace/total`)
+    axios.get(`${API_ROOT}/analytics/${this.state.user_id}/total`)
     .then(result => {
       console.log(result.data);
       this.setState({ analytics: result.data.analytics });
@@ -76,7 +77,7 @@ class Home extends Component {
   }
 
   addToothBrush = () => {
-        axios.post(`${API_ROOT}/oral/teeth`, { id: "alovelace" })
+        axios.post(`${API_ROOT}/oral/teeth`, { id: this.state.user_id })
         .then(result => {
             this.fetchAnalytics();
         })
@@ -86,7 +87,7 @@ class Home extends Component {
   }
 
   addCarWash = () => {
-      axios.post(`${API_ROOT}/carwash/`, { id: "alovelace" })
+      axios.post(`${API_ROOT}/carwash/`, { id: this.state.user_id })
       .then(result => {
           console.log(result);
         this.fetchAnalytics();
@@ -97,7 +98,7 @@ class Home extends Component {
   }
 
   addWashHands = () => {
-      axios.post(`${API_ROOT}/washhands/`, { id: "alovelace" })
+      axios.post(`${API_ROOT}/washhands/`, { id: this.state.user_id })
       .then(result => {
         console.log(result);
       this.fetchAnalytics();
@@ -107,10 +108,30 @@ class Home extends Component {
   })
   }
 
+  updateUser = (event) => {
+      var newUser = event.target.value;
+      console.log(newUser);
+      this.setState({ user_id: newUser });
+      
+      setTimeout(() => {
+        this.fetchAnalytics();
+      }, 1000);
+      
+  }
+
   render() {
     return (
       <div className="home-container">
         <img style={{width: '25%'}} src={logo} />
+
+        <select class="custom-select" value={this.state.user_id} onChange={this.updateUser.bind(this)} >
+            <option hidden> </option>
+            <option value="bill">bill</option>
+            <option value="andrew">andrew</option>
+            {/* <option value="chad">chad</option> */}
+        </select>
+        
+
         <div className="content">
             <div className="water-usage-blocks-container">
                 <div className="water-usage-block">
