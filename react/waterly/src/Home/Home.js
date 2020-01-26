@@ -125,32 +125,16 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
-                <div className="progress-container">
-                    Progress
-                   
-=======
                 <div className="progress-container rounded-lg">
                     <h3>Progress</h3>
                     
-                    <div id="progress">
-                        <img src={plant1} className="plantImage" alt="NA"></img>
-                        <img src={plant2} className="plantImage" alt="NA"></img>
-                        <img src={plant3} className="plantImage" alt="NA"></img>
-                        <img src={plant4} className="plantImage" alt="NA"></img>
-                        <img src={plant5} className="plantImage" alt="NA"></img>
-                        <img src={plant6} className="plantImage" alt="NA"></img>
-                        <img src={plant7} className="plantImage" alt="NA"></img>
-                    </div>
-
                     <h5>Total Gallons {this.state.analytics.totalGallons}</h5>
-                    <Line percent={(Math.floor(this.state.analytics.totalGallons)).toString()} strokeWidth="11" strokeColor="#89EDFF" />
->>>>>>> 9faae7f9d8e35fc982cee3c2b02ab46fe8b12330
+                    <Line percent={(Math.floor(this.state.analytics.totalGallons)).toString()} strokeWidth="11" strokeColor="#2C96E8" />
                 
                 </div>
             </div> 
             <div className="bottomPane">
-               This is where the stats go! 
+              
                 <div className="planterPot">
                     <img src={plant1} className="plantImage" alt="NA" hidden></img>
                     <img src={plant2} className="plantImage" alt="NA" hidden></img>
