@@ -128,7 +128,9 @@ class Home extends Component {
             <option hidden> </option>
             <option value="bill">bill</option>
             <option value="andrew">andrew</option>
-            {/* <option value="chad">chad</option> */}
+            <option value="eric">eric</option>
+            <option value="divyanshi">divyanshi</option>
+            <option value="ilan">ilan</option>
         </select>
                 <div className="content">
             <div className="water-usage-blocks-container">
