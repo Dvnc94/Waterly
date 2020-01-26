@@ -7,6 +7,9 @@ apiRoutes.use('/shower', showerRoutes);
 var oralHygieneRoutes = require('./oralHygiene/oralHygieneRoutes');
 apiRoutes.use('/oral', oralHygieneRoutes);
 
+var carWashRoutes = require('./carWash/carWashRoutes');
+apiRoutes.use('/carwash', carWashRoutes);
+
 var analyticsRoutes = require('./analytics/analyticsRoutes');
 apiRoutes.use('/analytics', analyticsRoutes);
 
