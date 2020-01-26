@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
-import {Dropdown} from 'react-bootstrap/Dropdown'
 import './timer.css';
 import start from "../../public/start1.png";
 import {postCall} from "../api";

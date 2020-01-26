@@ -72,7 +72,7 @@ class Home extends Component {
   }
 
   decrement = (e,v) => {
-    if(this.state[v] != 0) this.setState({ [v]: this.state[v]-1 });
+    if(this.state[v] !== 0) this.setState({ [v]: this.state[v]-1 });
     console.log(v, (this.state)[v]);
   }
 
@@ -122,9 +122,9 @@ class Home extends Component {
   render() {
     return (
       <div className="home-container">
-        <img style={{width: '25%'}} src={logo} />
+        <img style={{width: '25%'}} src={logo} alt='logo' />
 
-        <select class="custom-select" value={this.state.user_id} onChange={this.updateUser.bind(this)} >
+        <select className="custom-select" value={this.state.user_id} onChange={this.updateUser.bind(this)} >
             <option hidden> </option>
             <option value="bill">bill</option>
             <option value="andrew">andrew</option>
