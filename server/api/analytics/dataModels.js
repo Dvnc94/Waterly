@@ -44,3 +44,21 @@ exports.getAllOralActivity = function(userID) {
         })
     });
 }
+
+
+exports.getAllCarWashActivity = function(userID) {
+
+    return new Promise((resolve, reject) => {
+        db.collection('carwash').where('user_id', '==', userID).get()
+        .then(documents => {
+            var totalCarWashActivity = 0;
+            documents.forEach(activity => {
+                ++totalCarWashActivity;
+            });  
+            resolve({ count: totalCarWashActivity, totalGallons: 36 * totalCarWashActivity });
+        })
+        .catch(error => {
+            throw(error);
+        })
+    });
+}

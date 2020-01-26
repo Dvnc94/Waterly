@@ -1,3 +1,4 @@
+// Import dependencies
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,6 +18,9 @@ import plant5 from "../../public/progress/5.png";
 import plant6 from "../../public/progress/6.png";
 import plant7 from "../../public/progress/7.png";
 import { Line } from 'rc-progress';
+
+// Import config
+import { API_ROOT } from '../config/config.json';
 
 
 class Home extends Component {
@@ -38,7 +42,7 @@ class Home extends Component {
   }
 
   fetchAnalytics = () => {
-    axios.get('http://localhost:5000/api/analytics/alovelace/total')
+    axios.get(`${API_ROOT}/analytics/alovelace/total`)
     .then(result => {
       console.log(result.data);
       this.setState({ analytics: result.data.analytics });
@@ -60,7 +64,7 @@ class Home extends Component {
     console.log(v, (this.state)[v]);
   }
   toothBrushClicked = () => {
-        axios.post('http://localhost:5000/api/oral/teeth', { id: "alovelace" })
+        axios.post(`${API_ROOT}/oral/teeth`, { id: "alovelace" })
         .then(result => {
             console.log("Did not error");
             console.log(result);
