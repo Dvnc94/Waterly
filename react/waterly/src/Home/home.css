@@ -6,7 +6,7 @@
 .home-container {
     width: 100%;
     position: absolute;
-    /* height: 100%; */
+    height: 100%;
     background-color: rgba(143, 188, 219, 0.749);
 }
 .content {
@@ -28,7 +28,7 @@
 .bottomPane {
     height: 100%;
     width: 30%;
-    background-color: #9afe78d1;
+    background-color: #ddeef4;
     top: 0;
     float: right;
     display: inline-block;
@@ -95,32 +95,35 @@
 .progress-container {
     width: 100%;
     padding: 18px;
-    background-color: #85ff60bf;
+    background-color: #c5ebf6bf;
     bottom: 0;
     position: fixed;
 }
 
 .planterPot {
-    width: 26vw;
-    left: 2vw;
-    position: absolute;
+    width: 22vw;
+    text-align: 4vw;
+    position: relative;
     height: 22vw;
     top: 2vw;
+    left: 4vw;
     border-radius: 16%;
-    border: solid 1px black;
+    border: solid 1px lightblue;
+    display: block;
+    box-shadow: 0 0 3px 3px lightgrey;
     }
 .userStats {
-    border: solid 1px black; */
-    /* height: 100px; */
-    /* width: 45%; */
-    position: absolute;
-    /* right: 30px; */
-    /* top: 20px; */
+    font-size: 1.5vw;
+    width: 85%;
+    position: relative;
+    left: 2vw;
+    top: 68px;
     font-style: oblique;
     /* float: right; */
-    border: 1px solid white;
-    filter: drop-shadow(0px 2px 3px white);
-    box-shadow: 0 0 3px 3px white;
+    padding: 20px;
+    border: 1px solid lightblue;
+    filter: drop-shadow(0px 2px 3px lightblue);
+    box-shadow: 0 0 3px 3px lightgrey;
 }
 svg {
     overflow: hidden;

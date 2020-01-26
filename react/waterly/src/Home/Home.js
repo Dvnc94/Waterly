@@ -8,7 +8,7 @@ import axios from 'axios';
 import './home.css';
 import logo from '../../public/flowless.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import boil from "../../public/boil.png";
 import car from "../../public/car.png";
 import brush from "../../public/toothbrush.png";
@@ -43,12 +43,27 @@ class Home extends Component {
             carwash: { count: 0 },
             washhands: { count: 0 }
         },
-        user_id: ''
+        user_id: '',
+        bill:0,
+        andrew: 0,
+        eric: 0,
+        divyanshi: 0,
+        ilan: 0
      };
+     this.arr = ["bill","andrew","eric","divyanshi","ilan"];
+    
   }
 
   componentDidMount = () => {
-      
+    this.arr.forEach(user => {
+        return axios.get(`${API_ROOT}/analytics/${user}/total`)
+        .then(result => {
+          console.log(result.data);
+          this.setState({ [user]: result.data.analytics.totalGallons });
+        }).catch(error => {
+            console.log(error);
+        })
+      })
   }
 
   fetchAnalytics = () => {
@@ -120,6 +135,7 @@ class Home extends Component {
   }
 
   render() {
+      console.log(this.state);   
     return (
       <div className="home-container">
         <img src={logo} className="app-logo" />
@@ -195,8 +211,12 @@ class Home extends Component {
                 <img src={plant7} className="plantImage" alt="NA" hidden></img>
             </div>
             <div className="userStats">
-                You're doing great, sweetie! 
-                20% better than Linda!
+                <div className="scores">See all scores</div>
+                <div className="scores">Bill : {this.state.bill || 0}</div>
+                <div className="scores">Andrew : {this.state.andrew || 0}</div>
+                <div className="scores">Eric : {this.state.eric || 0}</div>
+                <div className="scores">Divyanshi : {this.state.divyanshi || 0}</div>
+                <div className="scores">Ilan : {this.state.ilan || 0}</div>
             </div>
         </div>
         <div className="progress-container rounded-lg">
