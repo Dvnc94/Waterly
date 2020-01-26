@@ -62,3 +62,21 @@ exports.getAllCarWashActivity = function(userID) {
         })
     });
 }
+
+
+exports.getAllWashHandsActivity = function(userID) {
+
+    return new Promise((resolve, reject) => {
+        db.collection('washhands').where('user_id', '==', userID).get()
+        .then(documents => {
+            var totalWashHandsActivity = 0;
+            documents.forEach(activity => {
+                ++totalWashHandsActivity;
+            });  
+            resolve({ count: totalWashHandsActivity, totalGallons: totalWashHandsActivity });
+        })
+        .catch(error => {
+            throw(error);
+        })
+    });
+}
