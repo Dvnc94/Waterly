@@ -19,6 +19,16 @@
     height: 100%;
     float: left;
 }
+.plantImage {
+    width: 250px;
+    height: 250px;
+    position: fixed;
+
+    right: 0.5%;
+    top: 45%;
+  
+}
+
 .water-usage-block {
     width: 30%;
     height: 30%;
