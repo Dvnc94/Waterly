@@ -1,10 +1,14 @@
 // Import dependencies
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import axios from 'axios';
+
+
+// Import styling
+import './home.css';
+import logo from '../../public/flowless.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
-import axios from 'axios';
-import './home.css';
 import boil from "../../public/boil.png";
 import car from "../../public/car.png";
 import brush from "../../public/toothbrush.png";
@@ -76,7 +80,7 @@ class Home extends Component {
   render() {
     return (
       <div className="home-container">
-        <h1>Waterly</h1>
+        <img style={{width: '25%'}} src={logo} />
         <div className="content">
             <div className="water-usage-blocks-container">
                 <div className="water-usage-block">
