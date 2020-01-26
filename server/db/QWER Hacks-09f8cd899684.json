@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "qwer-hacks-266300",
+  "private_key_id": "09f8cd8996844305ccaefdc9a7c1bcac210282a5",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC3zXw5hpX0lzft\nz9M0JY3ziv/D/yQnwB54P5XReQiC05UzsdddjoECuup6CyigI4g4q5FOqouj/gXl\nYRYlKn+gcRbnWpYxM084sjCjo3y7nH2tyYbxSW2H24JwdjIeRStzJh81cY/ABOwM\nH2/vT2q21Eo0gl8ypTvM/pbx7Z9hNpBZubl58coj5T2pWTBp7z5jkFqZYRpLLWjZ\nlvT+KyN39RDfq51F6GknwgpNpmBDps/b2O8NReq7WmS0mHV5lVwO4sCKwe7j+A/m\nJFLHszEn2muA92Mhe1YR+o0NIX6SXr7I9Pd/t3yiUNod2i04rb+fNUt4v9KaJDG+\nxQnrLDEXAgMBAAECggEAHvLHlvwVZdDMhwt2WZJ1O2vNMxhT4ymTN9YlCNdjWnv7\n5G9ufv9Os8H7Vz9nwMca2cfxuJg42Q0duwjE7M8iHEbOf3geT/x+u2ItlHAjwYdR\nFiEXyqr9eWG5rewI9lXZQhNKL/qGJOPvRv9IHrh1lIFcWUkWdHWkAxlfGy9SpdB7\ny0UTU6GkocanU3mZoMu9Ap7H1CtKtb1pNh1RjCt9CS5M6ywXqEwdD+ErNtjtL9le\nv4w/dyeTRSbIEgItZmxslKEx3vdMsO1L9DiecpRo9fB6tLbBrPjSoXjZOmXfwMrK\noZnDhBejOM8weFCi0PhmX0OCaqvLbwmiR1U7LsUiuQKBgQDu+/0AjSM0MMYlepBc\n/8EEibcBoKwyAtSmzQN5D4oX1ItQs2yABEptr2zufRQ12Qrjwzo8knMUWqOt1scC\nFWa/gfFXjjfIxLlbEWiJ09cNjfbXDNhFDiaaA5YXt/5OBHlcuDlt6FAOICOuyPdN\nWQuuBuDG0MFRjIo5D/YqHB+EawKBgQDE47DUp48VjqPt130aKYo206jl1iMyombv\nBQYv97LzQ5IRbXtL1Kg6VtnftLqfsTDAq3Inq9150goKJ8szZRFVm2axM3KQRmet\nrHhaeYkNHP/AaTsESNzOMODJy0mCwXpPbXMPtSon80L4QlMbmMFhGwMqwZnRgscQ\nEXAkISqRBQKBgAy66ZA09HIcQwHOFJCPoxV9zHzOtT14vyEffJbfSAja7oze8eGj\n2N8c4B2YFhKEPDtDs/90AaNM7Lke3rzyrOV4o4V5culD6We7dqkY2rTDIin0ajTL\neyzrEfyzdV1siZZxzcVYAaOu/Jeb5uh83M1pWmHczt9sMBS4D/HQS7F/AoGAA25M\nSIha7+86YAyfO3N52xa5HLgsiNdXn9agkvln/uEwjGkx+tJL1ChrR4Cot9uok9Lo\n/FP8WgEU97RV0CF0ud8pXPEej/EKIXad6kWv47CbrEipJJv4bQdhA2Mtdr/UV8n6\ndU2c3HFau2S8egChbgXAemBBQ+tZeKg1IgwJ59kCgYBO5k57VES8LbHdJYcUXkpb\nr7dTw1r36jywUi+sWMgmgiWVMkeqgORIugRPAx6/qKyrRKnt2iNLFnT6l77jc7wz\nweNMfYPyK4Vhk+3VbRvVk6xfcCo1uA14TYMICQW7SLedLssV90PXj4vRHKMwv6cA\n2ycryjD9JK0aLO4HcOwbWA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "qwer-hacks-api@qwer-hacks-266300.iam.gserviceaccount.com",
+  "client_id": "117520758865762381730",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/qwer-hacks-api%40qwer-hacks-266300.iam.gserviceaccount.com"
+}
