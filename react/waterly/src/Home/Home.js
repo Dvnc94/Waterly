@@ -105,17 +105,25 @@ class Home extends Component {
                 </div>
                 <div className="progress-container">
                     Progress
-                    <div id="progress">
-                    <img src={plant1} className="plantImage" alt="NA"></img>
-                    <img src={plant2} className="plantImage" alt="NA"></img>
-                    <img src={plant3} className="plantImage" alt="NA"></img>
-                    <img src={plant4} className="plantImage" alt="NA"></img>
-                    <img src={plant5} className="plantImage" alt="NA"></img>
-                    <img src={plant6} className="plantImage" alt="NA"></img>
-                    <img src={plant7} className="plantImage" alt="NA"></img>
-                    </div>
+                   
                 
                 </div>
+            </div> 
+            <div className="bottomPane">
+               This is where the stats go! 
+                <div className="planterPot">
+                    <img src={plant1} className="plantImage" alt="NA" hidden></img>
+                    <img src={plant2} className="plantImage" alt="NA" hidden></img>
+                    <img src={plant3} className="plantImage" alt="NA" ></img>
+                    <img src={plant4} className="plantImage" alt="NA" hidden></img>
+                    <img src={plant5} className="plantImage" alt="NA" hidden></img>
+                    <img src={plant6} className="plantImage" alt="NA" hidden></img>
+                    <img src={plant7} className="plantImage" alt="NA" hidden></img>
+                    </div>
+            <div className="userStats">
+                You're doing great, sweetie! 
+                20% better than Linda!
+            </div>
             </div>
         </div>
         );
