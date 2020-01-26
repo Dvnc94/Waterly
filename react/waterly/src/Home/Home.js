@@ -37,7 +37,11 @@ class Home extends Component {
         brush: 0,
         car: 0,
         tap: 0,
-        analytics: {}
+        analytics: {
+            showers: { count: 0 },
+            oral: { count: 0 },
+            carwash: { count: 0 }
+        }
      };
   }
 
@@ -56,27 +60,41 @@ class Home extends Component {
     })
   }
 
-  timer = () => {
+  navigateToTimer = () => {
     window.location.href = "/timer"; 
   }
+
   increment = (e,v) => {
     this.setState({ [v]: this.state[v]+1 });
     console.log(v, (this.state)[v], this.state);
   }
+
   decrement = (e,v) => {
     if(this.state[v] != 0) this.setState({ [v]: this.state[v]-1 });
     console.log(v, (this.state)[v]);
   }
-  toothBrushClicked = () => {
+
+  addToothBrush = () => {
         axios.post(`${API_ROOT}/oral/teeth`, { id: "alovelace" })
         .then(result => {
-            console.log("Did not error");
-            console.log(result);
+            this.fetchAnalytics();
         })
         .catch(error => {
             console.log(error);
         })
-    }
+  }
+
+  addCarWash = () => {
+      axios.post(`${API_ROOT}/carwash/`, { id: "alovelace" })
+      .then(result => {
+          console.log(result);
+        this.fetchAnalytics();
+    })
+    .catch(error => {
+        console.log(error);
+    })
+  }
+
   render() {
     return (
       <div className="home-container">
@@ -84,15 +102,18 @@ class Home extends Component {
         <div className="content">
             <div className="water-usage-blocks-container">
                 <div className="water-usage-block">
+                <div className="gallons">
+                        <div className="times">{this.state.analytics.showers.count}</div>
+                    </div>
                     <div className="icon-circle" >
-                        <img src={shower} className="image" alt="NA" onClick={() => this.timer()} />
+                        <img src={shower} className="image" alt="NA" onClick={() => this.navigateToTimer()} />
                     </div>
                 </div>
                 <div className="water-usage-block">
                     <div className="gallons">
-                        <FontAwesomeIcon icon={faPlus} className="icons" onClick={(e) => this.increment(e, "boil")} />
-                        <div className="times">{this.state.boil}</div>
                         <FontAwesomeIcon icon={faMinus} className="icons" onClick={(e) => this.decrement(e, "boil")} />
+                        <div className="times">{this.state.boil}</div>
+                        <FontAwesomeIcon icon={faPlus} className="icons" onClick={(e) => this.increment(e, "boil")} />
                     </div>
                     <div className="icon-circle">
                         <img src={boil} className="image" alt="NA" />   
@@ -100,9 +121,9 @@ class Home extends Component {
                 </div>
                 <div className="water-usage-block">
                 <div className="gallons">
-                        <FontAwesomeIcon icon={faPlus} className="icons" onClick={(e) => this.increment(e, "brush")} />
-                        <div className="times">{this.state.brush}</div>
                         <FontAwesomeIcon icon={faMinus} className="icons" onClick={(e) => this.decrement(e, "brush")} />
+                        <div className="times">{this.state.analytics.oral.count}</div>
+                        <FontAwesomeIcon icon={faPlus} className="icons" onClick={() => this.addToothBrush()} />
                     </div>
                     <div className="icon-circle">
                         <img src={brush} className="image" alt="NA" />  
@@ -110,9 +131,9 @@ class Home extends Component {
                 </div>
                 <div className="water-usage-block">
                 <div className="gallons">
-                        <FontAwesomeIcon icon={faPlus} className="icons" onClick={(e) => this.increment(e, "tap")} />
+                        <FontAwesomeIcon icon={faMinus} className="icons" onClick={(e) => this.decrement(e, "tap")} />
                         <div className="times">{this.state.tap}</div>
-                        <FontAwesomeIcon icon={faMinus} className="icons" onClick={(e) => this.decrement(e, "tap")}/>
+                        <FontAwesomeIcon icon={faPlus} className="icons" onClick={(e) => this.increment(e, "tap")} />
                     </div>
                     <div className="icon-circle">
                         <img src={tap} className="image" alt="NA" />  
@@ -120,9 +141,9 @@ class Home extends Component {
                 </div>
                 <div className="water-usage-block">
                 <div className="gallons">
-                        <FontAwesomeIcon icon={faPlus} className="icons" onClick={(e) => this.increment(e, "car")} />
-                        <div className="times">{this.state.car}</div>
                         <FontAwesomeIcon icon={faMinus} className="icons" onClick={(e) => this.decrement(e, "car")} />
+                        <div className="times">{this.state.analytics.carwash.count}</div>
+                        <FontAwesomeIcon icon={faPlus} className="icons" onClick={() => this.addCarWash()} />
                     </div>
                     <div className="icon-circle">
                         <img src={car} className="image" alt="NA" />  
