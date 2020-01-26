@@ -1,11 +1,11 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 import { far,
-    faMinusCircle,
-    faPlusCircle
-} from '@fortawesome/free-brands-svg-icons';
+    faMinus,
+    faPlus
+} from '@fortawesome/free-solid-svg-icons';
 
 library.add( far,
-    faMinusCircle,
-    faPlusCircle,
+    faMinus,
+    faPlus,
 );
