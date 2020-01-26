@@ -1,0 +1,40 @@
+.timer-container {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-color: #8fbcdbbf;
+}
+.message {
+
+}
+.input {
+    width: 30%;
+    padding: 8px;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 21px;
+    font-size: 20px;
+}
+.input::placeholder {
+    color: white;
+}
+.submit{
+    margin-left: 10%;
+}
+.start {
+    position: absolute;
+    height: 50%;
+    left: 50%;
+    top: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+.manual{
+    position: absolute;
+    top: 80%;
+    width: 100%;
+}
+.count {
+    font-size: 80px;
+    padding: 10%;
+}
