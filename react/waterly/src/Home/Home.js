@@ -110,7 +110,7 @@ class Home extends Component {
   render() {
     return (
       <div className="home-container">
-        <img style={{width: '25%'}} src={logo} />
+        <img src={logo} className="app-logo" />
         <div className="content">
             <div className="water-usage-blocks-container">
                 <div className="water-usage-block">
@@ -123,7 +123,7 @@ class Home extends Component {
                 </div>
                 <div className="water-usage-block">
                     <div className="gallons">
-                        <FontAwesomeIcon icon={faMinus} className="icons" onClick={(e) => this.decrement(e, "boil")} />
+                        {/* <FontAwesomeIcon icon={faMinus} className="icons" onClick={(e) => this.decrement(e, "boil")} /> */}
                         <div className="times">{this.state.boil}</div>
                         <FontAwesomeIcon icon={faPlus} className="icons" onClick={(e) => this.increment(e, "boil")} />
                     </div>
@@ -133,7 +133,7 @@ class Home extends Component {
                 </div>
                 <div className="water-usage-block">
                 <div className="gallons">
-                        <FontAwesomeIcon icon={faMinus} className="icons" onClick={(e) => this.decrement(e, "brush")} />
+                        {/* <FontAwesomeIcon icon={faMinus} className="icons" onClick={(e) => this.decrement(e, "brush")} /> */}
                         <div className="times">{this.state.analytics.oral.count}</div>
                         <FontAwesomeIcon icon={faPlus} className="icons" onClick={() => this.addToothBrush()} />
                     </div>
@@ -143,7 +143,7 @@ class Home extends Component {
                 </div>
                 <div className="water-usage-block">
                 <div className="gallons">
-                        <FontAwesomeIcon icon={faMinus} className="icons" onClick={(e) => this.decrement(e, "tap")} />
+                        {/* <FontAwesomeIcon icon={faMinus} className="icons" onClick={(e) => this.decrement(e, "tap")} /> */}
                         <div className="times">{this.state.analytics.washhands.count}</div>
                         <FontAwesomeIcon icon={faPlus} className="icons" onClick={() => this.addWashHands()} />
                     </div>
@@ -153,7 +153,7 @@ class Home extends Component {
                 </div>
                 <div className="water-usage-block">
                 <div className="gallons">
-                        <FontAwesomeIcon icon={faMinus} className="icons" onClick={(e) => this.decrement(e, "car")} />
+                        {/* <FontAwesomeIcon icon={faMinus} className="icons" onClick={(e) => this.decrement(e, "car")} /> */}
                         <div className="times">{this.state.analytics.carwash.count}</div>
                         <FontAwesomeIcon icon={faPlus} className="icons" onClick={() => this.addCarWash()} />
                     </div>
@@ -162,30 +162,28 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="progress-container rounded-lg">
-                    <h3>Progress</h3>
-                    
-                    <h5>Total Gallons {this.state.analytics.totalGallons}</h5>
-                    <Line percent={(Math.floor(this.state.analytics.totalGallons)).toString()} strokeWidth="11" strokeColor="#2C96E8" />
-                
-                </div>
-            </div> 
-            <div className="bottomPane">
-              
-                <div className="planterPot">
-                    <img src={plant1} className="plantImage" alt="NA" hidden></img>
-                    <img src={plant2} className="plantImage" alt="NA" hidden></img>
-                    <img src={plant3} className="plantImage" alt="NA" ></img>
-                    <img src={plant4} className="plantImage" alt="NA" hidden></img>
-                    <img src={plant5} className="plantImage" alt="NA" hidden></img>
-                    <img src={plant6} className="plantImage" alt="NA" hidden></img>
-                    <img src={plant7} className="plantImage" alt="NA" hidden></img>
-                    </div>
+        </div> 
+        <div className="bottomPane">
+            <div className="planterPot">
+                <img src={plant1} className="plantImage" alt="NA" hidden></img>
+                <img src={plant2} className="plantImage" alt="NA" hidden></img>
+                <img src={plant3} className="plantImage" alt="NA" ></img>
+                <img src={plant4} className="plantImage" alt="NA" hidden></img>
+                <img src={plant5} className="plantImage" alt="NA" hidden></img>
+                <img src={plant6} className="plantImage" alt="NA" hidden></img>
+                <img src={plant7} className="plantImage" alt="NA" hidden></img>
+            </div>
             <div className="userStats">
                 You're doing great, sweetie! 
                 20% better than Linda!
             </div>
-            </div>
+        </div>
+        <div className="progress-container rounded-lg">
+            {/* <h3>Progress</h3> */}
+            <h5>Total Gallons used today : {this.state.analytics.totalGallons}</h5>
+            <Line percent={(Math.floor(this.state.analytics.totalGallons)).toString()} strokeWidth="11" strokeColor="#2C96E8" />
+        </div>
+           
         </div>
         );
     }
