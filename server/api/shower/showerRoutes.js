@@ -10,10 +10,10 @@ showerRoutes.post('/', (req, res) => {
 
     Shower.addShower(userId, duration)
     .then(response => {
-        res.status(200).send("<h1>Added shower :)</h1>");
+        res.status(200).send(response);
     })
     .catch(error => {
-        res.status(500).send("<h1>Error adding shower :(</h1>")
+        res.status(500).send(error);
     })
 });
 
