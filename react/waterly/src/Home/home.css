@@ -1,35 +1,46 @@
 .app-heading {
     font-size: 20px;
     height: 50px;
-    background-color: lightgrey;
+    /* background-color: lightgrey; */
 }
 .home-container {
     width: 100%;
     position: absolute;
+    height: 100%;
+    background-color: #8fbcdbbf;
 }
 .content {
     width: 100%;
-    height: 100%;
+    height: 93%;
 }
 .water-usage-blocks-container{
     width: 80%;
     display: inline-block;
     height: 100%;
+    float: left;
 
 }
 .water-usage-block {
-    width: 25%;
-    height: 100px;
+    width: 20%;
+    height: 20%;
     display: inline-block;
-    padding: 4%;
+    padding: 5%;
     text-align: center;
 }
 .icon-circle {
     height: 100%;
-    width: 100%;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
+    border-radius: 5%;
+    margin: auto;
+    padding-top: 25px;
+    border: 1px solid transparent;
+}
+.icon-circle:hover {
+    border: 1px solid white;
+    filter: drop-shadow(0px 4px 3px white);
+    box-shadow: 0 0 5px 10px white;
+}
+.image {
+    height: 80%;
 }
 .progress-container {
     display: inline-block;
