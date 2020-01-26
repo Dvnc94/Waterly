@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter, router } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
@@ -16,10 +16,11 @@ import plant4 from "../../public/progress/4.png";
 import plant5 from "../../public/progress/5.png";
 import plant6 from "../../public/progress/6.png";
 import plant7 from "../../public/progress/7.png";
-
+import { Line } from 'rc-progress';
 
 
 class Home extends Component {
+
   constructor(props) {
       super(props);
       this.state = {
@@ -28,8 +29,25 @@ class Home extends Component {
         brush: 0,
         car: 0,
         tap: 0,
+        analytics: {}
      };
   }
+
+  componentDidMount = () => {
+      this.fetchAnalytics();
+  }
+
+  fetchAnalytics = () => {
+    axios.get('http://localhost:5000/api/analytics/alovelace/total')
+    .then(result => {
+      console.log(result.data);
+      this.setState({ analytics: result.data.analytics });
+    })
+    .catch(error => {
+        console.log(error);
+    })
+  }
+
   timer = () => {
     window.location.href = "/timer"; 
   }
@@ -54,7 +72,7 @@ class Home extends Component {
   render() {
     return (
       <div className="home-container">
-        <div className="app-heading">Waterly</div>
+        <h1>Waterly</h1>
         <div className="content">
             <div className="water-usage-blocks-container">
                 <div className="water-usage-block">
@@ -103,17 +121,21 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="progress-container">
-                    Progress
+                <div className="progress-container rounded-lg">
+                    <h3>Progress</h3>
+                    
                     <div id="progress">
-                    <img src={plant1} className="plantImage" alt="NA"></img>
-                    <img src={plant2} className="plantImage" alt="NA"></img>
-                    <img src={plant3} className="plantImage" alt="NA"></img>
-                    <img src={plant4} className="plantImage" alt="NA"></img>
-                    <img src={plant5} className="plantImage" alt="NA"></img>
-                    <img src={plant6} className="plantImage" alt="NA"></img>
-                    <img src={plant7} className="plantImage" alt="NA"></img>
+                        <img src={plant1} className="plantImage" alt="NA"></img>
+                        <img src={plant2} className="plantImage" alt="NA"></img>
+                        <img src={plant3} className="plantImage" alt="NA"></img>
+                        <img src={plant4} className="plantImage" alt="NA"></img>
+                        <img src={plant5} className="plantImage" alt="NA"></img>
+                        <img src={plant6} className="plantImage" alt="NA"></img>
+                        <img src={plant7} className="plantImage" alt="NA"></img>
                     </div>
+
+                    <h5>Total Gallons {this.state.analytics.totalGallons}</h5>
+                    <Line percent={(Math.floor(this.state.analytics.totalGallons)).toString()} strokeWidth="11" strokeColor="#89EDFF" />
                 
                 </div>
             </div>
