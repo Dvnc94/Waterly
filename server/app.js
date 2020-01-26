@@ -1,7 +1,14 @@
 var express = require('express'),
+    cors = require('cors'),
     bodyParser = require('body-parser'),
     morgan = require('morgan');
 var app = express();
+
+// Allow dev env to make back-end API calls
+app.use(cors({
+    origin: '*',
+    optionsSuccessStatus: 200
+}));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));

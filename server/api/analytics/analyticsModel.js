@@ -7,14 +7,17 @@ exports.getTotalUsage = function(userID) {
     console.log("User id: ", userID);
 
     return new Promise(function(resolve, reject) {
+        var absoluteTotal = 0;
 
         getAllShowerActivity(userID)
         .then(showerActivity => {
+            absoluteTotal += showerActivity.totalGallons;
 
             getAllOralActivity(userID)
             .then(oralActivity => {
-                
-                var response = buildResponse(true, 'Retrieved total analytics.' , { showers: showerActivity, oral: oralActivity });
+                absoluteTotal += oralActivity.totalGallons;
+
+                var response = buildResponse(true, 'Retrieved total analytics.' , { showers: showerActivity, oral: oralActivity, totalGallons: absoluteTotal });
                 resolve(response);
             })
         })

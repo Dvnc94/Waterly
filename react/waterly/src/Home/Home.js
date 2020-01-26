@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+
 import './home.css';
 import boil from "../../public/boil.png";
 import car from "../../public/car.png";
@@ -16,55 +18,67 @@ import plant7 from "../../public/progress/7.png";
 
 
 class App extends Component {
-  render() {
-    return (
-      <div className="home-container">
-        <div className="app-heading">Waterly</div>
-        <div className="content">
-            <div className="water-usage-blocks-container">
-                <div className="water-usage-block">
-                    <div className="icon-circle">
-                        <img src={shower} className="image" alt="NA" />
+
+    toothBrushClicked = () => {
+        axios.post('http://localhost:5000/api/oral/teeth', { id: "alovelace" })
+        .then(result => {
+            console.log("Did not error");
+            console.log(result);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
+
+    render() {
+        return (
+        <div className="home-container">
+            <div className="app-heading">Waterly</div>
+            <div className="content">
+                <div className="water-usage-blocks-container">
+                    <div className="water-usage-block">
+                        <div className="icon-circle">
+                            <img src={shower} className="image" alt="NA" />
+                        </div>
+                    </div>
+                    <div className="water-usage-block">
+                        <div className="icon-circle">
+                            <img src={boil} className="image" alt="NA" />   
+                        </div>
+                    </div>
+                    <div className="water-usage-block" onClick={() => { this.toothBrushClicked() }}>
+                        <div className="icon-circle">
+                            <img src={brush} className="image" alt="NA" />  
+                        </div>
+                    </div>
+                    <div className="water-usage-block">
+                        <div className="icon-circle">
+                            <img src={tap} className="image" alt="NA" />  
+                        </div>
+                    </div>
+                    <div className="water-usage-block">
+                        <div className="icon-circle">
+                        <img src={car} className="image" alt="NA" /> 
+                        </div>
                     </div>
                 </div>
-                <div className="water-usage-block">
-                    <div className="icon-circle">
-                        <img src={boil} className="image" alt="NA" />   
+                <div className="progress-container">
+                    Progress
+                    <div id="progress">
+                    <img src={plant1} className="plantImage" alt="NA"></img>
+                    <img src={plant2} className="plantImage" alt="NA"></img>
+                    <img src={plant3} className="plantImage" alt="NA"></img>
+                    <img src={plant4} className="plantImage" alt="NA"></img>
+                    <img src={plant5} className="plantImage" alt="NA"></img>
+                    <img src={plant6} className="plantImage" alt="NA"></img>
+                    <img src={plant7} className="plantImage" alt="NA"></img>
                     </div>
+                
                 </div>
-                <div className="water-usage-block">
-                    <div className="icon-circle">
-                        <img src={brush} className="image" alt="NA" />  
-                    </div>
-                </div>
-                <div className="water-usage-block">
-                    <div className="icon-circle">
-                        <img src={tap} className="image" alt="NA" />  
-                    </div>
-                </div>
-                <div className="water-usage-block">
-                    <div className="icon-circle">
-                    <img src={car} className="image" alt="NA" /> 
-                    </div>
-                </div>
-            </div>
-            <div className="progress-container">
-                Progress
-                <div id="progress">
-                <img src={plant1} className="plantImage" alt="NA"></img>
-                <img src={plant2} className="plantImage" alt="NA"></img>
-                <img src={plant3} className="plantImage" alt="NA"></img>
-                <img src={plant4} className="plantImage" alt="NA"></img>
-                <img src={plant5} className="plantImage" alt="NA"></img>
-                <img src={plant6} className="plantImage" alt="NA"></img>
-                <img src={plant7} className="plantImage" alt="NA"></img>
-                </div>
-              
             </div>
         </div>
-      </div>
-    );
-  }
+        );
+    }
 }
 
 export default App;
